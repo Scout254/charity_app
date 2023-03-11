@@ -5,25 +5,24 @@ import Layout from '../components/Layout'
 import React,{useEffect,useState} from 'react'
 import { useStateContext } from '../context'
 import DisplayCampgains from '../components/DisplayCampgains'
-const Home: NextPage = () => {
+const Profile: NextPage = () => {
 
   const [campaigns , setCampaigns] = useState([]);
-  const {address,contract,getCampaigns} = useStateContext();
+const {address,contract,getUserCampaigns} = useStateContext();
 
-  const fetchCampaigns = async () => {
-    
-    const data = await getCampaigns();
-    setCampaigns(data);
-   
-  }
+const fetchCampaigns = async () => {
+  const data = await getUserCampaigns(address); // Pass the address as a parameter here
+  setCampaigns(data);  
+}
 
-  useEffect(() => {
-    if(contract) fetchCampaigns();
-  },[address,contract])
+useEffect(() => {
+  if(contract) fetchCampaigns();
+},[address,contract])
+
 
 
   return (
-    <div className="">
+    <div className="w-4/5">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -38,4 +37,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Layout(Home)
+export default Layout(Profile)
