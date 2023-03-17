@@ -43,7 +43,7 @@ function DisplayCampaigns({ campaigns }) {
                       target,
                     })
                   }
-                  className="h-[400px] w-[300px] rounded-md shadow-md p-1 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 cursor-pointer"
+                  className="h-[400px] w-[300px] rounded-md shadow-lg p-1 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-100 cursor-pointer"
                 >
                   <img src={image} alt="" className="h-[250px] w-object-cover rounded-md shadow-sm " />
 
