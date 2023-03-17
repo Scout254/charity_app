@@ -4,7 +4,7 @@ function FormField({labelName,placeholder,inputType,value,handleChange,isTextAre
   return (
     <label className='flex flex-col'>
         {labelName && (
-            <span>{labelName}</span>
+            <span className="mb-1 font-medium">{labelName}</span>
         )}
         {isTextArea ?(
             <textarea
@@ -12,7 +12,7 @@ function FormField({labelName,placeholder,inputType,value,handleChange,isTextAre
             placeholder={placeholder}
             value={value}
             onChange={handleChange}
-            className="py-6 outline-none border border-black"
+            className="py-2 px-4 mb-4 border border-gray-400 rounded-lg resize-auto focus:outline-none focus:border-blue-500"
             />
         ):(
         <input
@@ -21,7 +21,7 @@ function FormField({labelName,placeholder,inputType,value,handleChange,isTextAre
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
-        className=" py-6 outline-none border border-black"
+        className="py-2 px-4 mb-4 border border-gray-400 rounded-lg focus:outline-none focus:border-blue-500"
          />
         )}
         

@@ -28,54 +28,84 @@ function CreateCampaign() {
     setForm({...form,[fieldName]:e.target.value})
   }
 
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedDate = e.target.value;
+    const today = new Date().toISOString().split('T')[0]; // get today's date in ISO format
+    setForm((prevForm) => ({
+      ...prevForm,
+      deadline: selectedDate,
+    }));
+    e.target.setAttribute('min', today); // set the min attribute to today's date
+  };
+  
   return (
-    <div className='w-4/5'>
-     <main>
-      <div className='flex flex-col'>
-        <h1>start a campgain</h1>
-        <form action="" onSubmit={handleSubmit} className="flex flex-col">
+    <div className="w-4/5">
+  <main className="flex justify-center">
+    <div className="max-w-lg w-full">
+      <h1 className="text-2xl font-bold text-center mb-4">Start a Campaign</h1>
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="mb-4">
           <FormField
-          labelName ="Your Name *"
-          placeholder = "John doe"
-          inputType ="text"
-          value={form.name}
-          handleChange ={(e)=>handleFormFieldChange('name',e)}
+            labelName="Your Name *"
+            placeholder="John Doe"
+            inputType="text"
+            value={form.name}
+            handleChange={(e) => handleFormFieldChange("name", e)}
           />
+        </div>
+        <div className="mb-4">
           <FormField
-          labelName ="description*"
-          placeholder = "enter desc of your case"
-          isTextArea
-          value={form.description}
-          handleChange ={(e)=>handleFormFieldChange('description',e)}
+            labelName="Description *"
+            placeholder="Enter a description of your case"
+            isTextArea
+            value={form.description}
+            handleChange={(e) => handleFormFieldChange("description", e)}
           />
+        </div>
+        <div className="mb-4">
           <FormField
-          labelName ="Image *"
-          placeholder = "imageUrl"
-          inputType ="text"
-          value={form.image}
-          handleChange ={(e)=>handleFormFieldChange('image',e)}
+            labelName="Image *"
+            placeholder="Image URL"
+            inputType="text"
+            value={form.image}
+            handleChange={(e) => handleFormFieldChange("image", e)}
           />
+        </div>
+        <div className="mb-4">
           <FormField
-          labelName ="Deadline "
-          placeholder = "End date"
-          inputType ="date"
-          value={form.deadline}
-          handleChange ={(e)=>handleFormFieldChange('deadline',e)}
+            labelName="Deadline *"
+            placeholder="End Date"
+            inputType="date"
+            value={form.deadline}
+            handleChange={(e) => {
+              handleFormFieldChange("deadline", e);
+              handleDateChange(e);
+            }}
+            min={new Date().toISOString().split("T")[0]}
           />
+        </div>
+        <div className="mb-4">
           <FormField
-          labelName ="Target Amount *"
-          placeholder = "ETH.0.5"
-          inputType ="text"
-          value={form.target}
-          handleChange ={(e)=>handleFormFieldChange('target',e)}
+            labelName="Target Amount *"
+            placeholder="ETH 0.5"
+            inputType="text"
+            value={form.target}
+            handleChange={(e) => handleFormFieldChange("target", e)}
           />
-          <button type='submit' className='bg-green-600 h-8 w-[200px] rounded-md'>
-            submitt new campaign
+        </div>
+        <div className="flex items-center justify-center">
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Submit New Campaign
           </button>
-        </form>
-      </div>
-     </main>
+        </div>
+      </form>
     </div>
+  </main>
+</div>
+
   )
 }
 

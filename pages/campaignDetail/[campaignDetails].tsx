@@ -37,25 +37,31 @@ function CampaignDetails() {
   }
 
   return (
-    <div className='w-4/5'>
-      <img src={image} alt="" className='h-[250px] w-[250px]' />
-      <h1>{name}</h1>
-      <p>{description}</p>
-      <p>Address: {creator}</p>
-      <p>Amount Collected: {amountCollected}</p>
-      <p>Target: {target}</p>
-     {donators.length} donors
-      <input
-       type="text"
-        placeholder='0.1'
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        />
-     {remainingDays} days left
-    <button 
-    onClick={handleDonate}
-    className='py2 bg-green-600 w-object-cover p-2 rounded-md'>fund cmpgain</button>
+<div className="w-[450px] rounded overflow-hidden shadow-lg">
+  <img className="w-full h-64 object-cover" src={image} alt="Campaign" />
+  <div className="py-4">
+    <div className="font-bold text-xl mb-2">{name}</div>
+    <p className="text-gray-700 text-base mb-4">{description}</p>
+    <div className="mb-4">
+      <p className="text-gray-700 text-base mb-2">{creator}</p>
+      <p className="text-gray-700 text-base mb-2">Amount Collected: {amountCollected}</p>
+      <p className="text-gray-700 text-base mb-2">Target: {target}</p>
+      <p className="text-gray-700 text-base">{donators.length} donors</p>
     </div>
+    <div className="flex items-center mb-4">
+      <input type="text" placeholder='0.1' value={amount} onChange={(e) => setAmount(e.target.value)}
+        className="w-20 py-2 px-3 mr-2 rounded-md border border-gray-400 outline-none" />
+      <p className="text-gray-600 text-sm">ETH</p>
+    </div>
+    <p className="text-gray-700 text-base mb-4">{remainingDays} days left</p>
+    <button onClick={handleDonate}
+      className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-all duration-200">
+      Fund Campaign
+    </button>
+  </div>
+</div>
+
+
 
   )
 }

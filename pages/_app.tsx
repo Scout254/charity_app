@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
   <ThirdwebProvider activeChain="goerli" >
     <StateContextProvider>
-    <Component {...pageProps} />
+    <Component {...pageProps} className=""/>
     </StateContextProvider>
   
 

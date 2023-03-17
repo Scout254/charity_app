@@ -1,47 +1,33 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router'
-import React from 'react'
-
+import { useRouter } from 'next/router';
+import React from 'react';
+import { FiHome, FiUser, FiLogOut } from 'react-icons/fi';
 
 function Sidebar() {
   const router = useRouter();
   
   return (
-    <div className=' text-black  h-screen sticky bottom-0'>
-      <div className='flex flex-col gap-2'>
+    <div className='bg-gray-100 h-screen sticky bottom-0 py-4 px-2'>
       <Link href="/">
-      <div className='bg-gray-200 flex items-center gap-1 h-[40px] w-full'>
-        <img src="https://cdn-icons-png.flaticon.com/128/3405/3405258.png" alt=""
-        className='h-[30px] w-[30px]'
-        />
-        <h1>Dashboard</h1>
-      </div>
+        <div className={`flex items-center py-2 px-3 rounded-lg ${router.pathname === '/' ? 'bg-gray-300' : ''}`}>
+          <FiHome className="w-5 h-5 mr-2" />
+          <h1 className="text-lg font-medium">Dashboard</h1>
+        </div>
       </Link>
       <Link href="/profile">
-        <div className='bg-gray-200 flex items-center gap-1 h-[40px] w-full'>
-        <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="" 
-        className='h-[30px] w-[30px]'
-        
-        />
-        <h2>Profile</h2>
+        <div className={`flex items-center py-2 px-3 rounded-lg ${router.pathname === '/profile' ? 'bg-gray-300' : ''}`}>
+          <FiUser className="w-5 h-5 mr-2" />
+          <h2 className="text-lg font-medium">Profile</h2>
         </div>
-        
       </Link>
       <Link href="/">
-      
-      <div className='bg-gray-200 flex items-center gap-1 h-[40px] w-full'>
-      <img src="https://cdn-icons-png.flaticon.com/128/2529/2529508.png" alt=""
-      className='h-[30px] w-[30px]'
-      
-      />
-      <h2>Logout</h2>
-      </div>
-        
+        <div className="flex items-center py-2 px-3 rounded-lg hover:bg-gray-200">
+          <FiLogOut className="w-5 h-5 mr-2" />
+          <h2 className="text-lg font-medium">Logout</h2>
+        </div>
       </Link>
-      </div>
-    
     </div>
-  )
+  );
 }
 
 export default Sidebar;

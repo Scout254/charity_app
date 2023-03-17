@@ -22,7 +22,7 @@ useEffect(() => {
 
 
   return (
-    <div className="w-4/5">
+    <div className="">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
