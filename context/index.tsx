@@ -44,7 +44,7 @@ export const StateContextProvider =({children})=>{
           image: campaign.imageUrl,
           pId: i
         }));
-          console.log(parsedCampaings)
+          // console.log(parsedCampaings)
     
         return parsedCampaings;
       }
@@ -72,7 +72,7 @@ export const StateContextProvider =({children})=>{
     
       const getDonors = async (pId) => {
         const donors = await contract.call('getDonators', pId);
-        console.log('donors:', donors);
+        // console.log('donors:', donors);
       
         return donors;
       }

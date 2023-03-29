@@ -39,15 +39,15 @@ function CreateCampaign() {
   };
   
   return (
-    <div className="w-4/5">
+    <div className=" bg-gray-200 shadow-md mt-12 p-4">
   <main className="flex justify-center">
     <div className="max-w-lg w-full">
-      <h1 className="text-2xl font-bold text-center mb-4">Start a Campaign</h1>
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h1 className="text-2xl font-bold text-center mb-4">Start a New Campaign</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center">
         <div className="mb-4">
           <FormField
-            labelName="Your Name *"
-            placeholder="John Doe"
+            labelName="Name"
+            placeholder="Enter the Campgaign name here"
             inputType="text"
             value={form.name}
             handleChange={(e) => handleFormFieldChange("name", e)}
@@ -55,7 +55,7 @@ function CreateCampaign() {
         </div>
         <div className="mb-4">
           <FormField
-            labelName="Description *"
+            labelName="Description "
             placeholder="Enter a description of your case"
             isTextArea
             value={form.description}
@@ -64,8 +64,8 @@ function CreateCampaign() {
         </div>
         <div className="mb-4">
           <FormField
-            labelName="Image *"
-            placeholder="Image URL"
+            labelName="Image "
+            placeholder="Paste the image url here"
             inputType="text"
             value={form.image}
             handleChange={(e) => handleFormFieldChange("image", e)}
@@ -73,8 +73,8 @@ function CreateCampaign() {
         </div>
         <div className="mb-4">
           <FormField
-            labelName="Deadline *"
-            placeholder="End Date"
+            labelName="Deadline "
+            placeholder="select the End date"
             inputType="date"
             value={form.deadline}
             handleChange={(e) => {
@@ -86,7 +86,7 @@ function CreateCampaign() {
         </div>
         <div className="mb-4">
           <FormField
-            labelName="Target Amount *"
+            labelName="Target Amount "
             placeholder="ETH 0.5"
             inputType="text"
             value={form.target}
@@ -96,9 +96,9 @@ function CreateCampaign() {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
-            Submit New Campaign
+            Submit Details
           </button>
         </div>
       </form>

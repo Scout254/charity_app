@@ -7,7 +7,7 @@ function Sidebar() {
   const router = useRouter();
   
   return (
-    <div className='bg-gray-100 h-screen sticky bottom-0 py-4 px-2'>
+    <div className='bg-gray-200 h-screen sticky bottom-0  px-2 pt-24 shadow-md'>
       <Link href="/">
         <div className={`flex items-center py-2 px-3 rounded-lg ${router.pathname === '/' ? 'bg-gray-300' : ''}`}>
           <FiHome className="w-5 h-5 mr-2" />

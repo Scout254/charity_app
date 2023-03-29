@@ -8,7 +8,12 @@ import DisplayCampgains from '../components/DisplayCampgains'
 const Home: NextPage = () => {
 
   const [campaigns , setCampaigns] = useState([]);
-  const {address,contract,getCampaigns} = useStateContext();
+  const {address,contract,getCampaigns,getDonors} = useStateContext();
+  const [donators, setDonators] = useState([]);
+
+  
+
+ 
 
   const fetchCampaigns = async () => {
     
