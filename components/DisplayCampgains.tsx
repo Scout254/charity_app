@@ -37,6 +37,16 @@ const fetchDonators = async (pId) => {
       });
     }
   }, [contract, campaigns]);
+
+  type Props = {
+    name: string;
+  };
+  const TruncatedHeading: React.FC<Props> = ({ name }) => {
+    const words = name.split(" ");
+    const truncatedName = words.length > 3 ? `${words.slice(0, 3).join(" ")}...` : name;
+  
+    return <h1 className="font-bold">{truncatedName}</h1>;
+  };
   
 
   return (
@@ -71,7 +81,7 @@ const fetchDonators = async (pId) => {
                      
                       
                     </div>
-                    <h1 className="text-2xl break-all font-bold">{description}</h1>
+                    <TruncatedHeading name={name} />
                     <div className="bg-gray-400 w-full h-4 rounded-full">
                       <div
                         className={`${

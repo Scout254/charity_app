@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-  <ThirdwebProvider activeChain="goerli" >
+  <ThirdwebProvider activeChain="mumbai" >
     <StateContextProvider>
     <Component {...pageProps} className=""/>
     </StateContextProvider>
